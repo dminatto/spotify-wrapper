@@ -8,7 +8,7 @@
     "build": "npm run clear && ./node_modules/.bin/babel --out-dir lib src",
     "build:watch": "npm run build -- --watch",
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "prepush": "npm run lint",
+    "prepush": "npm run lint && npm run test:coverage",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
     "test:watch": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
     "test:coverage": "nyc npm test"
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/willianjusten/spotify-wrapper.git"
+    "url": "git+https://github.com/dminatto/spotify-wrapper.git"
   },
   "keywords": [
     "js",
@@ -34,9 +34,9 @@
   "author": "Daniele Minatto <daniele.minatto@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/willianjusten/spotify-wrapper/issues"
+    "url": "https://github.com/dminatto/spotify-wrapper/issues"
   },
-  "homepage": "https://github.com/willianjusten/spotify-wrapper#readme",
+  "homepage": "https://github.com/dminatto/spotify-wrapper#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.3.2",
@@ -49,5 +49,11 @@
     "mocha": "^3.2.0",
     "nyc": "^10.2.0",
     "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "sinon": "^11.1.1",
+    "sinon-chai": "^3.7.0",
+    "sinon-stub-promise": "^4.0.0"
   }
 }
