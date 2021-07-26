@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
 const search = (query, type) => {
   fetch(`https://api.spotify.com/v1/search?query=${query}&type=${type}`);
