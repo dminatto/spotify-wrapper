@@ -5,9 +5,9 @@ delete compilerOptions.paths['*']
 
 module.exports = {
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts', '!**/node_modules/**'],
+  collectCoverageFrom: ['tests/**/*.ts', '!**/node_modules/**'],
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
-  roots: ['src/'],
+  roots: ['tests/'],
   testPathIgnorePatterns: ['<rootDir>/(?:.+?)/dist/'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts?$',
   transform: {
