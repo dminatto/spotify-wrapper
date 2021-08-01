@@ -27,31 +27,29 @@ describe('SpotifyWrapper Library', function () {
   })
 
   describe('request method', () => {
-    beforeEach(() => {})
-
-    afterEach(() => {})
+    let spotifyWrapper: SpotifyWrapper
+    beforeEach(() => {
+      spotifyWrapper = new SpotifyWrapper({ token: 'token' })
+    })
 
     it('should have request method', () => {
-      const spotifyWrapper = new SpotifyWrapper({})
       expect(spotifyWrapper.request).toBeDefined()
     })
 
     it('should call axios when request', () => {
-      const spotifyWrapper = new SpotifyWrapper({})
       spyOn(axios, 'get')
       spotifyWrapper.request('q=test')
       expect(axios.get).toHaveBeenCalled()
     })
 
     it('should call axios with right url passed', () => {
-      const spotifyWrapper = new SpotifyWrapper({ token: '' })
       spyOn(axios, 'get')
       spotifyWrapper.request('q=test')
       expect(axios.get).toHaveBeenCalledWith(
         'https://api.spotify.comv1/search?q=test',
         {
           headers: {
-            Authorization: "'Bearer '",
+            Authorization: "'Bearer token'",
             'Content-Type': 'application/json',
           },
         }
@@ -59,7 +57,6 @@ describe('SpotifyWrapper Library', function () {
     })
 
     it('should call axios with right headers passed', () => {
-      const spotifyWrapper = new SpotifyWrapper({ token: 'token' })
       spyOn(axios, 'get')
       spotifyWrapper.request('q=test')
       expect(axios.get).toHaveBeenCalledWith(
